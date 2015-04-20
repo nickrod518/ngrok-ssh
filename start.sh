@@ -6,6 +6,7 @@ touch $CONF
 if [ ! -z "$NGROKTOKEN" ]; then
 	echo "authtoken: $NGROKTOKEN" >> $CONF
 fi
+echo 'inspect_addr: 0.0.0.0:4040' >> $CONF
 
 # Start sshd
 /usr/sbin/sshd &
