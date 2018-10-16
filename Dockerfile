@@ -4,7 +4,7 @@ RUN apt-get update
 
 # Install ngrok
 RUN apt-get install -y curl unzip
-RUN curl -Lk 'https://dl.ngrok.com/ngrok_2.0.15_linux_amd64.zip' > ngrok.zip
+RUN curl -Lk 'https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip' > ngrok.zip
 RUN unzip ngrok.zip -d /bin && rm -f ngrok.zip
 RUN echo 'inspect_addr: 0.0.0.0:4040' > /.ngrok
 
