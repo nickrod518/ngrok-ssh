@@ -1,6 +1,8 @@
 FROM ubuntu:18.10
 
+# Update the vm
 RUN apt-get update
+RUN apt-get upgrade -y
 
 # Install ngrok
 RUN apt-get install -y curl unzip
