@@ -1,13 +1,15 @@
 FROM ubuntu:18.10
 
+RUN apt-get update
+
 # Install ngrok
-RUN apt install -y curl unzip
+RUN apt-get install -y curl unzip
 RUN curl -Lk 'https://dl.ngrok.com/ngrok_2.0.15_linux_amd64.zip' > ngrok.zip
 RUN unzip ngrok.zip -d /bin && rm -f ngrok.zip
 RUN echo 'inspect_addr: 0.0.0.0:4040' > /.ngrok
 
 # Install sshd
-RUN apt install -y openssh-server
+RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
 RUN echo 'root:password' | chpasswd
 RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
