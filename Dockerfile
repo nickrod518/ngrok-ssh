@@ -21,9 +21,9 @@ ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
 # Add start script
-RUN mkdir -p /config
-ADD start.sh /config/
+RUN mkdir -p /app
+ADD start.sh /app/
 
 EXPOSE 4040
 
-ENTRYPOINT ["/config/start.sh"]
+ENTRYPOINT ["/app/start.sh"]
