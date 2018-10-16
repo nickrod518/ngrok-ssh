@@ -6,7 +6,6 @@ RUN apt-get update
 RUN apt-get install -y curl unzip
 RUN curl -Lk 'https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip' > ngrok.zip
 RUN unzip ngrok.zip -d /bin && rm -f ngrok.zip
-RUN echo 'inspect_addr: 0.0.0.0:4040' > /.ngrok
 
 # Install sshd
 RUN apt-get install -y openssh-server
@@ -20,10 +19,10 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 
+EXPOSE 22
+
 # Add start script
 RUN mkdir -p /app
 ADD start.sh /app/
-
-EXPOSE 4040
 
 ENTRYPOINT ["/app/start.sh"]
