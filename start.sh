@@ -4,4 +4,4 @@
 /usr/sbin/sshd &
 
 # Start ngrok
-ngrok start --all -config /app/ngrok.yml
+ngrok start --all -config /config/ngrok.yml
